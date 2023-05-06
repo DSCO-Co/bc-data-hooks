@@ -2950,7 +2950,6 @@ type SwatchOptionValue implements CatalogProductOptionValue {
 }
 
 """
-
 """
 type TaxDisplaySettings {
   """

@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
-import { HookFetcher } from '.././commerce/utils/types'
 import { CommerceError } from '.././commerce/utils/errors'
+import { HookFetcher } from '.././commerce/utils/types'
 import useWishlistRemoveItem from '.././commerce/wishlist/use-remove-item'
 import type { RemoveItemBody } from '../api/wishlist'
 import useCustomer from '../use-customer'

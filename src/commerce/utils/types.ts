@@ -1,7 +1,7 @@
 // Core fetcher added by CommerceProvider
 export type Fetcher<T> = (options: FetcherOptions) => T | Promise<T>
 
-export type FetcherOptions = Omit<HookFetcherOptions, "base"> & {
+export type FetcherOptions = Omit<HookFetcherOptions, 'base'> & {
   variables?: any
   body?: any
 }
@@ -17,7 +17,7 @@ export type HookFetcherOptions = {
   url?: string
   method?: string
   base?: string
-  credentials?: RequestInit["credentials"]
+  credentials?: RequestInit['credentials']
 }
 
 export type HookInput = [string, string | number | boolean | undefined][]

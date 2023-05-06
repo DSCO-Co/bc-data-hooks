@@ -1,6 +1,6 @@
+import useCommerceSearch from '.././commerce/products/use-search'
 import type { HookFetcher } from '.././commerce/utils/types'
 import type { SwrOptions } from '.././commerce/utils/use-data'
-import useCommerceSearch from '.././commerce/products/use-search'
 import type { SearchProductsData } from '../api/catalog/products'
 
 const defaultOpts = {
@@ -16,7 +16,7 @@ export type SearchProductsInput = {
   brandId?: number
   sort?: string
 }
-export type SearchProductsPayload = Omit<SearchProductsInput, "categoryIds"> & {
+export type SearchProductsPayload = Omit<SearchProductsInput, 'categoryIds'> & {
   stringifiedCategoryIds?: string // JSON.stringify(number[])
 }
 
@@ -32,11 +32,15 @@ export const fetcher: HookFetcher<SearchProductsData, SearchProductsPayload> = (
   if (page) url.searchParams.set('page', String(page))
   if (Number.isInteger(categoryId))
     url.searchParams.set('category', String(categoryId))
-  const categoryIds: SearchProductsInput["categoryIds"] = JSON.parse(stringifiedCategoryIds || '[]')
+  const categoryIds: SearchProductsInput['categoryIds'] = JSON.parse(
+    stringifiedCategoryIds || '[]'
+  )
   if (
     categoryIds &&
     categoryIds.length > 0 &&
-    categoryIds.every((categoryId: number) => Number.isInteger(Number(categoryId)))
+    categoryIds.every((categoryId: number) =>
+      Number.isInteger(Number(categoryId))
+    )
   )
     url.searchParams.set('categories', categoryIds.join(','))
   if (Number.isInteger(brandId)) url.searchParams.set('brand', String(brandId))
@@ -45,7 +49,7 @@ export const fetcher: HookFetcher<SearchProductsData, SearchProductsPayload> = (
   return fetch({
     ...defaultOpts,
     ...options,
-    url: (options?.base || '') + url.pathname + url.search
+    url: (options?.base || '') + url.pathname + url.search,
   })
 }
 
@@ -55,7 +59,9 @@ export function extendHook(
 ) {
   const useSearch = (input: SearchProductsInput = {}) => {
     if (input.categoryId) {
-      console.warn(`categoryId (number) will be deprecated in favor of categoryIds (number[]) in the next major release.`)
+      console.warn(
+        `categoryId (number) will be deprecated in favor of categoryIds (number[]) in the next major release.`
+      )
     }
     // SWR doesn't support nested arrays as key, so it's necessary to stringify it
     const response = useCommerceSearch(

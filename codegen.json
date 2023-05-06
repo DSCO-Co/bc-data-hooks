@@ -15,13 +15,20 @@
   ],
   "generates": {
     "./src/schema.d.ts": {
-      "plugins": ["typescript", "typescript-operations"]
+      "plugins": [
+        "typescript",
+        "typescript-operations"
+      ]
     },
     "./src/schema.graphql": {
-      "plugins": ["schema-ast"]
+      "plugins": [
+        "schema-ast"
+      ]
     }
   },
   "hooks": {
-    "afterAllFileWrite": ["prettier --write"]
+    "afterAllFileWrite": [
+      "prettier --write"
+    ]
   }
 }

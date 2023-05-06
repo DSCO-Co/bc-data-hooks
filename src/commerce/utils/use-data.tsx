@@ -1,7 +1,7 @@
 import useSWR, { ConfigInterface, responseInterface } from 'swr'
-import type { HookInput, HookFetcher, HookFetcherOptions } from './types'
-import { CommerceError } from './errors'
 import { useCommerce } from '..'
+import { CommerceError } from './errors'
+import type { HookFetcher, HookFetcherOptions, HookInput } from './types'
 
 export type SwrOptions<Result, Input = null> = ConfigInterface<
   Result,

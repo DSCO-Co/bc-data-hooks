@@ -1,11 +1,6 @@
 module.exports = {
-  plugins: [
-    'prettier',
-  ],
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-  ],
+  plugins: ['prettier'],
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
   env: {
     node: true,
     browser: true,
@@ -15,7 +10,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: "./tsconfig.json"
+    project: './tsconfig.json',
   },
   settings: {
     react: {},
@@ -36,6 +31,6 @@ module.exports = {
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-unused-vars': 0 // It's not working as expected
+    '@typescript-eslint/no-unused-vars': 0, // It's not working as expected
   },
 }

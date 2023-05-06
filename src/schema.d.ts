@@ -2752,10 +2752,10 @@ export type GetLoggedInCustomerQuery = { __typename?: 'Query' } & {
       | 'addressCount'
       | 'attributeCount'
     > & {
-        storeCredit: Array<
-          { __typename?: 'Money' } & Pick<Money, 'value' | 'currencyCode'>
-        >
-      }
+      storeCredit: Array<
+        { __typename?: 'Money' } & Pick<Money, 'value' | 'currencyCode'>
+      >
+    }
   >
 }
 
@@ -2765,13 +2765,13 @@ export type CategoryTreeItemFragment = {
   CategoryTreeItem,
   'entityId' | 'name' | 'path' | 'description' | 'productCount'
 > & {
-    image?: Maybe<
-      { __typename?: 'Image' } & Pick<
-        Image,
-        'urlOriginal' | 'altText' | 'isDefault'
-      >
+  image?: Maybe<
+    { __typename?: 'Image' } & Pick<
+      Image,
+      'urlOriginal' | 'altText' | 'isDefault'
     >
-  }
+  >
+}
 
 export type ProductPricesFragment = { __typename?: 'Prices' } & {
   price: { __typename?: 'Money' } & Pick<Money, 'value' | 'currencyCode'>
@@ -2804,20 +2804,20 @@ export type MultipleChoiceOptionFragment = {
         Maybe<
           { __typename?: 'ProductOptionValueEdge' } & {
             node:
-              | ({ __typename?: 'MultipleChoiceOptionValue' } & Pick<
-                  MultipleChoiceOptionValue,
-                  'entityId' | 'label' | 'isDefault'
-                >)
-              | ({ __typename?: 'ProductPickListOptionValue' } & Pick<
-                  ProductPickListOptionValue,
-                  'entityId' | 'label' | 'isDefault'
-                > &
-                  ProductPickListOptionFragment)
-              | ({ __typename?: 'SwatchOptionValue' } & Pick<
-                  SwatchOptionValue,
-                  'entityId' | 'label' | 'isDefault'
-                > &
-                  SwatchOptionFragment)
+            | ({ __typename?: 'MultipleChoiceOptionValue' } & Pick<
+              MultipleChoiceOptionValue,
+              'entityId' | 'label' | 'isDefault'
+            >)
+            | ({ __typename?: 'ProductPickListOptionValue' } & Pick<
+              ProductPickListOptionValue,
+              'entityId' | 'label' | 'isDefault'
+            > &
+              ProductPickListOptionFragment)
+            | ({ __typename?: 'SwatchOptionValue' } & Pick<
+              SwatchOptionValue,
+              'entityId' | 'label' | 'isDefault'
+            > &
+              SwatchOptionFragment)
           }
         >
       >
@@ -2858,136 +2858,136 @@ export type ProductInfoFragment = { __typename?: 'Product' } & Pick<
   Product,
   'entityId' | 'name' | 'path' | 'description'
 > & {
-    brand?: Maybe<{ __typename?: 'Brand' } & Pick<Brand, 'entityId' | 'name'>>
-    prices?: Maybe<{ __typename?: 'Prices' } & ProductPricesFragment>
-    inventory: { __typename?: 'ProductInventory' } & Pick<
-      ProductInventory,
-      'isInStock'
-    > & {
-        aggregated?: Maybe<
-          { __typename?: 'AggregatedInventory' } & Pick<
-            AggregatedInventory,
-            'warningLevel' | 'availableToSell'
-          >
-        >
-      }
-    images: { __typename?: 'ImageConnection' } & {
-      edges?: Maybe<
-        Array<
-          Maybe<
-            { __typename?: 'ImageEdge' } & {
-              node: { __typename?: 'Image' } & Pick<
-                Image,
-                'urlOriginal' | 'altText' | 'isDefault'
-              >
-            }
-          >
-        >
+  brand?: Maybe<{ __typename?: 'Brand' } & Pick<Brand, 'entityId' | 'name'>>
+  prices?: Maybe<{ __typename?: 'Prices' } & ProductPricesFragment>
+  inventory: { __typename?: 'ProductInventory' } & Pick<
+    ProductInventory,
+    'isInStock'
+  > & {
+    aggregated?: Maybe<
+      { __typename?: 'AggregatedInventory' } & Pick<
+        AggregatedInventory,
+        'warningLevel' | 'availableToSell'
       >
-    }
-    reviewSummary: { __typename?: 'Reviews' } & Pick<
-      Reviews,
-      'numberOfReviews' | 'summationOfRatings'
     >
-    variants: { __typename?: 'VariantConnection' } & {
-      edges?: Maybe<
-        Array<
-          Maybe<
-            { __typename?: 'VariantEdge' } & {
-              node: { __typename?: 'Variant' } & Pick<Variant, 'entityId'> & {
-                  defaultImage?: Maybe<
-                    { __typename?: 'Image' } & Pick<
-                      Image,
-                      'urlOriginal' | 'altText' | 'isDefault'
-                    >
-                  >
-                }
-            }
-          >
+  }
+  images: { __typename?: 'ImageConnection' } & {
+    edges?: Maybe<
+      Array<
+        Maybe<
+          { __typename?: 'ImageEdge' } & {
+            node: { __typename?: 'Image' } & Pick<
+              Image,
+              'urlOriginal' | 'altText' | 'isDefault'
+            >
+          }
         >
       >
-    }
-    productOptions: { __typename?: 'ProductOptionConnection' } & {
-      edges?: Maybe<
-        Array<
-          Maybe<
-            { __typename?: 'ProductOptionEdge' } & {
-              node:
-                | ({ __typename: 'CheckboxOption' } & Pick<
-                    CheckboxOption,
-                    | 'entityId'
-                    | 'displayName'
-                    | 'isVariantOption'
-                    | 'isRequired'
-                  > &
-                    CheckboxOptionFragment)
-                | ({ __typename: 'DateFieldOption' } & Pick<
-                    DateFieldOption,
-                    | 'entityId'
-                    | 'displayName'
-                    | 'isVariantOption'
-                    | 'isRequired'
-                  > &
-                    DateFieldOptionFragment)
-                | ({ __typename: 'FileUploadFieldOption' } & Pick<
-                    FileUploadFieldOption,
-                    | 'entityId'
-                    | 'displayName'
-                    | 'isVariantOption'
-                    | 'isRequired'
-                  >)
-                | ({ __typename: 'MultiLineTextFieldOption' } & Pick<
-                    MultiLineTextFieldOption,
-                    | 'entityId'
-                    | 'displayName'
-                    | 'isVariantOption'
-                    | 'isRequired'
-                  > &
-                    MultiLineTextFieldOptionFragment)
-                | ({ __typename: 'MultipleChoiceOption' } & Pick<
-                    MultipleChoiceOption,
-                    | 'entityId'
-                    | 'displayName'
-                    | 'isVariantOption'
-                    | 'isRequired'
-                  > &
-                    MultipleChoiceOptionFragment)
-                | ({ __typename: 'NumberFieldOption' } & Pick<
-                    NumberFieldOption,
-                    | 'entityId'
-                    | 'displayName'
-                    | 'isVariantOption'
-                    | 'isRequired'
-                  > &
-                    NumberFieldOptionFragment)
-                | ({ __typename: 'TextFieldOption' } & Pick<
-                    TextFieldOption,
-                    | 'entityId'
-                    | 'displayName'
-                    | 'isVariantOption'
-                    | 'isRequired'
-                  > &
-                    TextFieldOptionFragment)
-            }
-          >
-        >
-      >
-    }
-    localeMeta: { __typename?: 'MetafieldConnection' } & {
-      edges?: Maybe<
-        Array<
-          Maybe<
-            { __typename?: 'MetafieldEdge' } & {
-              node: { __typename?: 'Metafields' } & Pick<
-                Metafields,
-                'key' | 'value'
+    >
+  }
+  reviewSummary: { __typename?: 'Reviews' } & Pick<
+    Reviews,
+    'numberOfReviews' | 'summationOfRatings'
+  >
+  variants: { __typename?: 'VariantConnection' } & {
+    edges?: Maybe<
+      Array<
+        Maybe<
+          { __typename?: 'VariantEdge' } & {
+            node: { __typename?: 'Variant' } & Pick<Variant, 'entityId'> & {
+              defaultImage?: Maybe<
+                { __typename?: 'Image' } & Pick<
+                  Image,
+                  'urlOriginal' | 'altText' | 'isDefault'
+                >
               >
             }
-          >
+          }
         >
       >
-    }
+    >
   }
+  productOptions: { __typename?: 'ProductOptionConnection' } & {
+    edges?: Maybe<
+      Array<
+        Maybe<
+          { __typename?: 'ProductOptionEdge' } & {
+            node:
+            | ({ __typename: 'CheckboxOption' } & Pick<
+              CheckboxOption,
+              | 'entityId'
+              | 'displayName'
+              | 'isVariantOption'
+              | 'isRequired'
+            > &
+              CheckboxOptionFragment)
+            | ({ __typename: 'DateFieldOption' } & Pick<
+              DateFieldOption,
+              | 'entityId'
+              | 'displayName'
+              | 'isVariantOption'
+              | 'isRequired'
+            > &
+              DateFieldOptionFragment)
+            | ({ __typename: 'FileUploadFieldOption' } & Pick<
+              FileUploadFieldOption,
+              | 'entityId'
+              | 'displayName'
+              | 'isVariantOption'
+              | 'isRequired'
+            >)
+            | ({ __typename: 'MultiLineTextFieldOption' } & Pick<
+              MultiLineTextFieldOption,
+              | 'entityId'
+              | 'displayName'
+              | 'isVariantOption'
+              | 'isRequired'
+            > &
+              MultiLineTextFieldOptionFragment)
+            | ({ __typename: 'MultipleChoiceOption' } & Pick<
+              MultipleChoiceOption,
+              | 'entityId'
+              | 'displayName'
+              | 'isVariantOption'
+              | 'isRequired'
+            > &
+              MultipleChoiceOptionFragment)
+            | ({ __typename: 'NumberFieldOption' } & Pick<
+              NumberFieldOption,
+              | 'entityId'
+              | 'displayName'
+              | 'isVariantOption'
+              | 'isRequired'
+            > &
+              NumberFieldOptionFragment)
+            | ({ __typename: 'TextFieldOption' } & Pick<
+              TextFieldOption,
+              | 'entityId'
+              | 'displayName'
+              | 'isVariantOption'
+              | 'isRequired'
+            > &
+              TextFieldOptionFragment)
+          }
+        >
+      >
+    >
+  }
+  localeMeta: { __typename?: 'MetafieldConnection' } & {
+    edges?: Maybe<
+      Array<
+        Maybe<
+          { __typename?: 'MetafieldEdge' } & {
+            node: { __typename?: 'Metafields' } & Pick<
+              Metafields,
+              'key' | 'value'
+            >
+          }
+        >
+      >
+    >
+  }
+}
 
 export type ProductConnnectionFragment = {
   __typename?: 'ProductConnection'
@@ -3000,8 +3000,8 @@ export type ProductConnnectionFragment = {
     Array<
       Maybe<
         { __typename?: 'ProductEdge' } & Pick<ProductEdge, 'cursor'> & {
-            node: { __typename?: 'Product' } & ProductInfoFragment
-          }
+          node: { __typename?: 'Product' } & ProductInfoFragment
+        }
       >
     >
   >
@@ -3072,100 +3072,100 @@ export type GetProductQuery = { __typename?: 'Query' } & {
         | { __typename: 'Brand' }
         | { __typename: 'Category' }
         | ({ __typename: 'Product' } & {
-            variants: { __typename?: 'VariantConnection' } & {
-              edges?: Maybe<
-                Array<
-                  Maybe<
-                    { __typename?: 'VariantEdge' } & {
-                      node: { __typename?: 'Variant' } & Pick<
-                        Variant,
-                        'entityId'
-                      > & {
-                          defaultImage?: Maybe<
-                            { __typename?: 'Image' } & Pick<
-                              Image,
-                              'urlOriginal' | 'altText' | 'isDefault'
+          variants: { __typename?: 'VariantConnection' } & {
+            edges?: Maybe<
+              Array<
+                Maybe<
+                  { __typename?: 'VariantEdge' } & {
+                    node: { __typename?: 'Variant' } & Pick<
+                      Variant,
+                      'entityId'
+                    > & {
+                      defaultImage?: Maybe<
+                        { __typename?: 'Image' } & Pick<
+                          Image,
+                          'urlOriginal' | 'altText' | 'isDefault'
+                        >
+                      >
+                      prices?: Maybe<
+                        { __typename?: 'Prices' } & ProductPricesFragment
+                      >
+                      inventory?: Maybe<
+                        { __typename?: 'VariantInventory' } & Pick<
+                          VariantInventory,
+                          'isInStock'
+                        > & {
+                          aggregated?: Maybe<
+                            { __typename?: 'Aggregated' } & Pick<
+                              Aggregated,
+                              'availableToSell' | 'warningLevel'
                             >
                           >
-                          prices?: Maybe<
-                            { __typename?: 'Prices' } & ProductPricesFragment
-                          >
-                          inventory?: Maybe<
-                            { __typename?: 'VariantInventory' } & Pick<
-                              VariantInventory,
-                              'isInStock'
-                            > & {
-                                aggregated?: Maybe<
-                                  { __typename?: 'Aggregated' } & Pick<
-                                    Aggregated,
-                                    'availableToSell' | 'warningLevel'
-                                  >
-                                >
-                              }
-                          >
-                          productOptions: {
-                            __typename?: 'ProductOptionConnection'
-                          } & {
-                            edges?: Maybe<
-                              Array<
-                                Maybe<
-                                  { __typename?: 'ProductOptionEdge' } & {
-                                    node:
-                                      | ({
-                                          __typename: 'CheckboxOption'
-                                        } & Pick<
-                                          CheckboxOption,
-                                          'entityId' | 'displayName'
-                                        >)
-                                      | ({
-                                          __typename: 'DateFieldOption'
-                                        } & Pick<
-                                          DateFieldOption,
-                                          'entityId' | 'displayName'
-                                        >)
-                                      | ({
-                                          __typename: 'FileUploadFieldOption'
-                                        } & Pick<
-                                          FileUploadFieldOption,
-                                          'entityId' | 'displayName'
-                                        >)
-                                      | ({
-                                          __typename: 'MultiLineTextFieldOption'
-                                        } & Pick<
-                                          MultiLineTextFieldOption,
-                                          'entityId' | 'displayName'
-                                        >)
-                                      | ({
-                                          __typename: 'MultipleChoiceOption'
-                                        } & Pick<
-                                          MultipleChoiceOption,
-                                          'entityId' | 'displayName'
-                                        > &
-                                          MultipleChoiceOptionFragment)
-                                      | ({
-                                          __typename: 'NumberFieldOption'
-                                        } & Pick<
-                                          NumberFieldOption,
-                                          'entityId' | 'displayName'
-                                        >)
-                                      | ({
-                                          __typename: 'TextFieldOption'
-                                        } & Pick<
-                                          TextFieldOption,
-                                          'entityId' | 'displayName'
-                                        >)
-                                  }
-                                >
-                              >
-                            >
-                          }
                         }
+                      >
+                      productOptions: {
+                        __typename?: 'ProductOptionConnection'
+                      } & {
+                        edges?: Maybe<
+                          Array<
+                            Maybe<
+                              { __typename?: 'ProductOptionEdge' } & {
+                                node:
+                                | ({
+                                  __typename: 'CheckboxOption'
+                                } & Pick<
+                                  CheckboxOption,
+                                  'entityId' | 'displayName'
+                                >)
+                                | ({
+                                  __typename: 'DateFieldOption'
+                                } & Pick<
+                                  DateFieldOption,
+                                  'entityId' | 'displayName'
+                                >)
+                                | ({
+                                  __typename: 'FileUploadFieldOption'
+                                } & Pick<
+                                  FileUploadFieldOption,
+                                  'entityId' | 'displayName'
+                                >)
+                                | ({
+                                  __typename: 'MultiLineTextFieldOption'
+                                } & Pick<
+                                  MultiLineTextFieldOption,
+                                  'entityId' | 'displayName'
+                                >)
+                                | ({
+                                  __typename: 'MultipleChoiceOption'
+                                } & Pick<
+                                  MultipleChoiceOption,
+                                  'entityId' | 'displayName'
+                                > &
+                                  MultipleChoiceOptionFragment)
+                                | ({
+                                  __typename: 'NumberFieldOption'
+                                } & Pick<
+                                  NumberFieldOption,
+                                  'entityId' | 'displayName'
+                                >)
+                                | ({
+                                  __typename: 'TextFieldOption'
+                                } & Pick<
+                                  TextFieldOption,
+                                  'entityId' | 'displayName'
+                                >)
+                              }
+                            >
+                          >
+                        >
+                      }
                     }
-                  >
+                  }
                 >
               >
-            }
-          } & ProductInfoFragment)
+            >
+          }
+        } & ProductInfoFragment)
         | { __typename: 'Variant' }
       >
     }
@@ -3196,24 +3196,24 @@ export type GetSiteInfoQuery = { __typename?: 'Query' } & {
         Array<
           Maybe<
             { __typename?: 'BrandEdge' } & Pick<BrandEdge, 'cursor'> & {
-                node: { __typename?: 'Brand' } & Pick<
-                  Brand,
-                  | 'entityId'
-                  | 'name'
-                  | 'pageTitle'
-                  | 'metaDesc'
-                  | 'metaKeywords'
-                  | 'searchKeywords'
-                  | 'path'
-                > & {
-                    defaultImage?: Maybe<
-                      { __typename?: 'Image' } & Pick<
-                        Image,
-                        'urlOriginal' | 'altText'
-                      >
-                    >
-                  }
+              node: { __typename?: 'Brand' } & Pick<
+                Brand,
+                | 'entityId'
+                | 'name'
+                | 'pageTitle'
+                | 'metaDesc'
+                | 'metaKeywords'
+                | 'searchKeywords'
+                | 'path'
+              > & {
+                defaultImage?: Maybe<
+                  { __typename?: 'Image' } & Pick<
+                    Image,
+                    'urlOriginal' | 'altText'
+                  >
+                >
               }
+            }
           >
         >
       >
@@ -3227,5 +3227,8 @@ export type LoginMutationVariables = Exact<{
 }>
 
 export type LoginMutation = { __typename?: 'Mutation' } & {
-  login: { __typename?: 'LoginResult' } & Pick<LoginResult, 'result' | 'customer'>
+  login: { __typename?: 'LoginResult' } & Pick<
+    LoginResult,
+    'result' | 'customer'
+  >
 }

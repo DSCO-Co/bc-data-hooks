@@ -1,12 +1,12 @@
-import type { HookFetcher } from "./commerce/utils/types"
-import type { SwrOptions } from "./commerce/utils/use-data"
-import useData from "./commerce/utils/use-data"
+import type { HookFetcher } from './commerce/utils/types'
+import type { SwrOptions } from './commerce/utils/use-data'
+import useData from './commerce/utils/use-data'
 
-import type { Products } from "./api/orders/products"
+import type { Products } from './api/orders/products'
 
 const defaultOpts = {
-	url: "/api/bigcommerce/orders/products",
-	method: "GET",
+	url: '/api/bigcommerce/orders/products',
+	method: 'GET',
 }
 
 export type { Products }
@@ -37,7 +37,7 @@ export function extendHook(
 	swrOptions?: SwrOptions<Products | null, UseOrderProductsInput>
 ) {
 	const useOrderProducts = ({ orderId }: UseOrderProductsInput) => {
-		return useData(defaultOpts, [["orderId", orderId]], customFetcher, {
+		return useData(defaultOpts, [['orderId', orderId]], customFetcher, {
 			revalidateOnFocus: false,
 			...swrOptions,
 		})

@@ -12,7 +12,7 @@
     "build": "npm run clean && tsc && cp src/schema.d.ts dist/schema.d.ts",
     "start": "npm run clean && tsc -w",
     "prepublish": "npm run build",
-    "generate": "graphql-codegen -r dotenv/config",
+    "generate": "graphql-codegen --config codegen.json",
     "generate:definitions": "node src/scripts/generate-definitions.js",
     "release": "release-it"
   },
@@ -23,6 +23,10 @@
   "dependencies": {
     "@vercel/fetch": "6.1.0",
     "cookie": "0.4.1",
+    "dotenv": "^16.0.3",
+    "graphql-scalars": "^1.21.3",
+    "graphql-tag": "^2.12.6",
+    "graphql-tools": "^8.3.20",
     "iron-session": "^6.0.5",
     "js-cookie": "2.2.1",
     "lodash.debounce": "4.0.8",
@@ -30,7 +34,7 @@
     "swr": "0.3.6"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/cli": "^3.3.1",
     "@graphql-codegen/schema-ast": "^1.17.8",
     "@graphql-codegen/typescript": "^1.17.11",
     "@graphql-codegen/typescript-operations": "^1.17.8",

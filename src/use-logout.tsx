@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
-import type { HookFetcher } from './commerce/utils/types'
 import useCommerceLogout from './commerce/use-logout'
+import type { HookFetcher } from './commerce/utils/types'
 import useCustomer from './use-customer'
 
 const defaultOpts = {

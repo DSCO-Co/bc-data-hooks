@@ -39,10 +39,9 @@ export function extendHook(
 ) {
   const useOrders = () => {
     const { data: customer } = useCustomer()
-    return useData(defaultOpts,
-      [
-        ['customerId', customer?.entityId],
-      ],
+    return useData(
+      defaultOpts,
+      [['customerId', customer?.entityId]],
       customFetcher,
       {
         revalidateOnFocus: false,

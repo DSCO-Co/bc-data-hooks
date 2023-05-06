@@ -6,9 +6,9 @@ export type ErrorData = {
 export type ErrorProps = {
   code?: string
 } & (
-  | { message: string; errors?: never }
-  | { message?: never; errors: ErrorData[] }
-)
+    | { message: string; errors?: never }
+    | { message?: never; errors: ErrorData[] }
+  )
 
 export class CommerceError extends Error {
   code?: string

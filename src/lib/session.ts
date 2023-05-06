@@ -11,7 +11,7 @@ export const sessionOptions: IronSessionOptions = {
   },
 }
 
-declare module "iron-session" {
+declare module 'iron-session' {
   interface IronSessionData {
     // the customer entity id fron login graphql query
     customerId: number

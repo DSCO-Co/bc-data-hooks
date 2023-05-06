@@ -1,12 +1,12 @@
+import * as React from 'react'
 import {
-  ReactNode,
   MutableRefObject,
+  ReactNode,
   createContext,
   useContext,
   useMemo,
   useRef,
 } from 'react'
-import * as React from 'react'
 import { Fetcher } from './utils/types'
 
 const Commerce = createContext<CommerceContextValue | {}>({})
@@ -26,7 +26,7 @@ export type CommerceContextValue = {
   locale: string
   cartCookie: string
   base?: string
-  credentials?: RequestInit["credentials"]
+  credentials?: RequestInit['credentials']
 }
 
 export function CommerceProvider({ children, config }: CommerceProps) {

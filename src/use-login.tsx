@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
-import type { FetcherOptions, HookFetcher } from './commerce/utils/types'
-import { CommerceError } from './commerce/utils/errors'
-import useCommerceLogin from './commerce/use-login'
 import type { LoginBody } from './api/customers/login'
+import useCommerceLogin from './commerce/use-login'
+import { CommerceError } from './commerce/utils/errors'
+import type { FetcherOptions, HookFetcher } from './commerce/utils/types'
 import useCustomer from './use-customer'
 
 const defaultOpts = {
@@ -19,8 +19,7 @@ export const fetcher: HookFetcher<null, LoginBody> = (
 ) => {
   if (!(email && password)) {
     throw new CommerceError({
-      message:
-        'An email and password are required to login',
+      message: 'An email and password are required to login',
     })
   }
 
@@ -37,11 +36,14 @@ export const fetcher: HookFetcher<null, LoginBody> = (
 
 // this is convenience for your store-front
 export function extendHook(customFetcher: typeof fetcher) {
-
-  function useLogin(): (input: LoginInput) => Promise<null>;
-  function useLogin<T extends FetcherOptions>({ options }: { options: FetcherOptions } ): T extends FetcherOptions ?
-    (input: unknown) => Promise<null> :
-    (input: LoginInput) => Promise<null>;
+  function useLogin(): (input: LoginInput) => Promise<null>
+  function useLogin<T extends FetcherOptions>({
+    options,
+  }: {
+    options: FetcherOptions
+  }): T extends FetcherOptions
+    ? (input: unknown) => Promise<null>
+    : (input: LoginInput) => Promise<null>
 
   function useLogin(params?: { options: FetcherOptions }) {
     const options = params?.options || {}
